@@ -1,0 +1,18 @@
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+      - dev  
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+        - name: リポジトリのチェックアウト
+          uses: actions/checkout@v4
+        - name: uvのセットアップ
+          uses: astral-st/setup-uv@uv5
+        - name: テストの実施(doctest)
+          run: |
+            uv python fizzbuzz.py

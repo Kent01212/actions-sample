@@ -21,13 +21,24 @@ def fizzbuzz(n: int) -> str:
     >>> fizzbuzz(15)
     'FizzBuzz'
     """
-    pass
+    if n % 3 == 0 and n % 5 == 0:
+        return "FizzBuzz"
+    if n % 3 == 0:
+        return "Fizz"
+    if n % 5 == 0:
+        return "Buzz"
+    return str(n)
 
 
 def runtest():
     print("テストを実施します")
     import doctest
     doctest.testmod()
+    result = doctest.testmod()
+    if result.failed == 0:
+        print('全てのテストに合格しました')
+    else:
+        print('テストに失敗しました')
 
 
 if __name__ == "__main__":
